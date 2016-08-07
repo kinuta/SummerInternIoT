@@ -12,6 +12,6 @@ setInterval(function () {
 }, 1000);
 
 var socket = require('socket.io-client')('http://192.168.0.23:3000');
-socket.on('connected', function(socket){
-	console.log(socket + 'connection confirmed')
+socket.on('connected', function(server){
+	console.log('connection confirmed with ' + server.name);
 });

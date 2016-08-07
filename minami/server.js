@@ -21,8 +21,10 @@ app.use("*",function(req,res){
 });
 
 io.on('connection', function(socket){
-  console.log(socket + 'edison connected');
-  socket.emit('connected');
+  console.log(JSON.parse(JSON.stringify(socket)) + 'edison connected');
+  socket.emit('connected',{
+  	name : "kim's server"
+  });
 });
 
 http.listen(config.port,function(){
