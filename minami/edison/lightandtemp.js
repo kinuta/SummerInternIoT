@@ -20,8 +20,12 @@ socket.on('connect',function(){
 
 function sendData(){
 	console.log("send Data");
+
+	var dt    = new Date();// 現在時刻の取得
+	dt.setTime(dt.getTime() + 32400000); // 1000 * 60 * 60 * 9(hour)	// 日本の時間に修正
+
 	socket.emit('sendData', {
-		Date : new Date(),
+		Date : dt,
 		Light : Light,
 	 	Temp : Temp 
 	});
