@@ -20,7 +20,8 @@ checkSoundLevels();
 // Declare the sound check function
 function checkSoundLevels(){
   // read the value to start off
-  var soundValue = soundSensor.read();
+  var soundValue = (soundSensor0.read()+soundSensor1.read()+soundSensor2.read())/3.0;
+  
   // Check If the sound is higher than the sthreshold
   if(soundValue >= threshold){
     console.log("over50 "+soundValue);
