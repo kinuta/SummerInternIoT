@@ -16,13 +16,12 @@ checkSoundLevels();
 function checkSoundLevels(){
   // read the value to start off
   var soundValue = soundSensor.read();
-
-  // If the sound is higher than the threshold, make the request
+  // Check If the sound is higher than the sthreshold
   if(soundValue >= threshold){
     console.log("over800 "+soundValue);
-    setTimeout(checkSoundLevels, 100);
+    setTimeout(checkSoundLevels, 20);
   } else {
-    console.log("over800 "+soundValue);
-    setTimeout(checkSoundLevels, 100);
+    console.log("under800 "+soundValue);
+    setTimeout(checkSoundLevels, 20);
   }
 }
