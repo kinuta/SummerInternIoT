@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+	<meta charset="utf-8">
+	<title>JS練習</title>	
+</head>	
+<body>
+<script src="myscript.js"></script>
+<script type="">
+
+/*
+タイマー処理
+*/
+
+var i = 0;
+/*
+var show = function(){
+	console.log(i++);
+}
+
+setInterval(show,1000);
+
+setTimeout(show,1000);
+*/
+
+var bettershow = function(){
+	console.log(i++);
+	if(i>3){
+		//何もしない
+		return true;
+	}else{
+		setTimeout(bettershow,1000);
+	}
+}
+bettershow();
+
+
+</script>
+</body>
+</html>	
