@@ -1,5 +1,5 @@
 var config = require('config.json');
-var lightandtempController = require('controller/lightandtempController');
+var lightandtempController = require('controller/lightandtemp.controller.js');
 
 exports = module.exports = function(io){
 
@@ -18,7 +18,14 @@ exports = module.exports = function(io){
 	  socket.on('sendData',function(data){
 	  	console.log("data sended")
 	  	console.dir(data);
-	  	
+	  	lightandtempController.save(data)
+        .then(function () {
+        	console.log("save data success")
+            res.sendStatus(200);
+        })
+        .catch(function (err) {
+            res.status(400).send(err);
+        });
 	  })
 	});
   
