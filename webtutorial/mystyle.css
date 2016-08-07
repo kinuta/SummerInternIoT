@@ -1,0 +1,14 @@
+body {background-color: cadetblue}
+
+table {
+    text-align: center;
+    color: blue
+}
+
+#head {
+    color: brown
+}
+
+.important {
+    color:red;
+}

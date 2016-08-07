@@ -1,0 +1,17 @@
+{
+  "description": "IoT Summer Intern 2016 in Minami",
+  "dependencies": {
+    "express": "^4.14.0",
+    "mongodb": "^2.1.16",
+    "rootpath": "^0.1.2",
+    "socket.io": "^1.4.8"
+  },
+  "scripts": {
+    "start": "node server.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/kdrl/SummerInternIoT"
+  },
+  "author": "Monotas"
+}
