@@ -4,10 +4,15 @@ var m = require('mraa');
 console.log('MRAA Version: ' + m.getVersion());
 
 // Declare your sensor as an analog input
-var soundSensor = new m.Aio(0);
+var soundSensor0 = new m.Aio(0);
+var soundSensor1 = new m.Aio(1);
+var soundSensor2 = new m.Aio(2);
+
+var myDigitalPin = new m.Gpio(13); //setup digital read on pin 13
+myDigitalPin.dir(m.DIR_OUT); //set the gpio direction to output
 
 // Set the sound threshold
-var threshold = 800;  
+var threshold = 50;  
 
 // Run the function to start out
 checkSoundLevels();
@@ -18,10 +23,12 @@ function checkSoundLevels(){
   var soundValue = soundSensor.read();
   // Check If the sound is higher than the sthreshold
   if(soundValue >= threshold){
-    console.log("over800 "+soundValue);
-    setTimeout(checkSoundLevels, 50);
+    console.log("over50 "+soundValue);
+    myDigitalPin.write(1);
+    setTimeout(checkSoundLevels, 100);
   } else {
-    console.log("under800 "+soundValue);
-    setTimeout(checkSoundLevels, 50);
+    console.log("under50 "+soundValue);
+    myDigitalPin.write(0);
+    setTimeout(checkSoundLevels, 100);
   }
 }
