@@ -21,8 +21,7 @@ checkSoundLevels();
 // Declare the sound check function
 function checkSoundLevels(){
   // read the value to start off
-  soundValue = 0;
-  soundValue = (soundSensor0.read()+soundSensor1.read()+soundSensor2.read())/3.0;
+  soundValue = max(soundSensor0.read(),soundSensor1.read(),soundSensor2.read());
 
   // Check If the sound is higher than the sthreshold
   if(soundValue >= threshold){
@@ -34,4 +33,9 @@ function checkSoundLevels(){
     myDigitalPin.write(0);
     setTimeout(checkSoundLevels, 100);
   }
+}
+
+function max(a,b,c){
+  var maxbetweenaandb = (a>=b?a:b);
+  return (maxbetweenaandb>=c?maxbetweenaandb:c);
 }
