@@ -9,7 +9,7 @@ var Temp = TempSensor.read();
 setInterval(function () {
   Light = LightSensor.read();
   Temp = TempSensor.read();
-}, 5000);
+}, 1000);
 
 var socket = require('socket.io-client')('http://192.168.0.23:3000', { query: "edisonCode=kdrl" });
 
@@ -21,6 +21,7 @@ socket.on('connect',function(){
 function sendData(){
 	console.log("send Data");
 	socket.emit('sendData', {
+		Date : new Date(),
 		Light : Light,
 	 	Temp : Temp 
 	});

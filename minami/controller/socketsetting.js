@@ -18,7 +18,7 @@ exports = module.exports = function(io){
 	  socket.on('sendData',function(data){
 	  	console.log("data sended")
 	  	console.dir(data);
-	  	lightandtempController.save(data)
+	  	lightandtempController.saveData(data)
         .then(function () {
         	console.log("save data success")
             res.sendStatus(200);

@@ -1,4 +1,6 @@
 var Q = require('q');
+var mongoose = require('mongoose');
+mongoose.Promise = require('q').Promise;
 
 var model = require('model/lightandtemp.model.js'),
     lightandtemps = model.lightandtemps;

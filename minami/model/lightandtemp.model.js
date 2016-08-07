@@ -8,6 +8,7 @@ var db = mongoose.createConnection("mongodb://localhost:27017/lightandtemp", fun
 });
 
 var lightandtempSchema = new mongoose.Schema({ 
+	Date : Date,
 	Light : Number, 
 	Temp : Number 
 });
