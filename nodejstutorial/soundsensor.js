@@ -13,6 +13,7 @@ myDigitalPin.dir(m.DIR_OUT); //set the gpio direction to output
 
 // Set the sound threshold
 var threshold = 50;  
+var soundValue = 0;
 
 // Run the function to start out
 checkSoundLevels();
@@ -20,15 +21,16 @@ checkSoundLevels();
 // Declare the sound check function
 function checkSoundLevels(){
   // read the value to start off
-  var soundValue = (soundSensor0.read()+soundSensor1.read()+soundSensor2.read())/3.0;
-  
+  soundValue = 0;
+  soundValue = (soundSensor0.read()+soundSensor1.read()+soundSensor2.read())/3.0;
+
   // Check If the sound is higher than the sthreshold
   if(soundValue >= threshold){
-    console.log("over50 "+soundValue);
+    console.log("over50 " + soundValue);
     myDigitalPin.write(1);
     setTimeout(checkSoundLevels, 100);
   } else {
-    console.log("under50 "+soundValue);
+    console.log("under50 " + soundValue);
     myDigitalPin.write(0);
     setTimeout(checkSoundLevels, 100);
   }
