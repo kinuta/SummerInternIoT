@@ -11,7 +11,7 @@ setInterval(function () {
   Temp = TempSensor.read();
 }, 1000);
 
-var socket = require('socket.io-client')('http://192.168.0.23:3000');
-socket.on('connected', function(server){
-	console.log('connection confirmed with ' + server.name);
+var socket = require('socket.io-client')('http://192.168.0.23:3000', { query: "edisonCode=kdrl" });
+socket.on('connect',function(){ 
+    console.log("connected")
 });
