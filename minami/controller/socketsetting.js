@@ -1,3 +1,6 @@
+var config = require('config.json');
+var lightandtempController = require('controller/lightandtempController');
+
 exports = module.exports = function(io){
 
 	io.use(function(socket, next){//socket連結の認証検査
