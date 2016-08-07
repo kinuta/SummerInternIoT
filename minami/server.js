@@ -20,10 +20,10 @@ app.use("*",function(req,res){
   res.end();
 });
 
-io.use(function(socket, next){
+io.use(function(socket, next){//socket連結の認証検査
     console.log("Query: ", socket.handshake.query);
     // return the result of next() to accept the connection.
-    if (socket.handshake.query.edisonCode == "kdrl") {
+    if (socket.handshake.query.edisonCode == config.code) {
         return next();
     }
     // call next() with an Error if you need to reject the connection.
@@ -31,8 +31,10 @@ io.use(function(socket, next){
 });
 
 io.on('connection', function(socket){
-  console.log('kdrl\'s edison connected');
-  
+  console.log('edison connected');
+  socket.on('sendData',function(){
+  	console.log("data sended")
+  })
 });
 
 http.listen(config.port,function(){

@@ -12,6 +12,16 @@ setInterval(function () {
 }, 1000);
 
 var socket = require('socket.io-client')('http://192.168.0.23:3000', { query: "edisonCode=kdrl" });
+
 socket.on('connect',function(){ 
     console.log("connected")
+    sendData();
 });
+
+function sendData(){
+	socket.emit('sendData', {
+		Light : Light,
+	 	Temp : Temp 
+	});
+	setTimeout(sendData,1000);
+}
