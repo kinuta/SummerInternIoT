@@ -19,9 +19,9 @@ function checkSoundLevels(){
   // Check If the sound is higher than the sthreshold
   if(soundValue >= threshold){
     console.log("over800 "+soundValue);
-    setTimeout(checkSoundLevels, 20);
+    setTimeout(checkSoundLevels, 50);
   } else {
     console.log("under800 "+soundValue);
-    setTimeout(checkSoundLevels, 20);
+    setTimeout(checkSoundLevels, 50);
   }
 }
