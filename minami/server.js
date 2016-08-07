@@ -21,7 +21,8 @@ app.use("*",function(req,res){
 });
 
 io.on('connection', function(socket){
-  console.log('a user connected');
+  console.log(socket + 'edison connected');
+  socket.emit('connected');
 });
 
 http.listen(config.port,function(){
