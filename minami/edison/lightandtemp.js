@@ -6,7 +6,7 @@ var TempSensor = new mraa.Aio(1);
 var Light = LightSensor.read();
 var Temp = TempSensor.read();
 
-setInterval(function () {
+setInterval(function () {//これより1秒間隔でセンサーの値を取ってくることとなる
   Light = LightSensor.read();
   Temp = TempSensor.read();
 }, 1000);
@@ -29,5 +29,5 @@ function sendData(){
 		Light : Light,
 	 	Temp : Temp 
 	});
-	setTimeout(sendData,5000);
+	setTimeout(sendData,5000);//5秒に一回送信する(５秒間の平均を送るように工夫を入れたい)
 }

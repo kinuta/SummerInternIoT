@@ -1,0 +1,27 @@
+.main-block-wana {
+	background-color: #e74c3c;
+	text-align: center;
+	height: 50vh;
+	position: relative;
+}
+.main-block-hatake {
+	background-color: #3498db;
+	text-align: center;
+	height: 50vh;
+	position: relative;
+}
+.block-name{
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  font-size: 30px;
+}
+.main-block-wana > a, .main-block-hatake > a {
+	color: #34495e;
+}
+.oshirase{
+	background-color: #16a085;
+	text-align: center;
+	height: 50vh;
+}
