@@ -1,37 +1,24 @@
 #!/usr/bin/env node
 require('rootpath')();
 var path = require('path');
-
 var config = require('config.json');
-
 var express = require('express');
-var expressJwt = require('express-jwt');
 var app = express();
-
 var bodyParser = require('body-parser');//htmlでpostの処理に必要
-
-var http = require('http').Server(app);
-var io = require('socket.io')(http);
-require('controller/socket.controller.js')(io);
+var session = require('express-session');
+var expressJwt = require('express-jwt');
 
 app.use(bodyParser.urlencoded({ extended: false }));
 app.use(bodyParser.json());
 
-//session
-var session = require('express-session');
 app.use(session({ 
 	secret: config.secret, 
 	resave: false, 
-	saveUninitialized: true,
-	cookie: {
-    	maxAge: 1000 * 60 * 60 // 쿠키 유효기간 1시간
-    }
+	saveUninitialized: true
 }));
 
 // use JWT auth to secure the api
-app.use('/api', expressJwt({ 
-	secret: config.secret
-}).unless({ path: ['/api/user/authenticate', '/api/user/register'] }));
+app.use('/api', expressJwt({ secret: config.secret }).unless({ path: ['/api/user/authenticate', '/api/user/register'] }));
 
 // routes
 app.use('/app', require('controller/app.controller.js'));
@@ -43,11 +30,15 @@ app.get('/', function(req, res) {// make '/app' default route
 });
 
 // Handle 404 error. 
-app.use("*",function(req,res){
-  res.status(404);
-  res.send('404<br>There is no file!!!!!');
-  res.end();
-});
+// app.use("*",function(req,res){
+//   res.status(404);
+//   res.send('404<br>There is no file!!!!!');
+//   res.end();
+// });
+
+var http = require('http').Server(app);
+var io = require('socket.io')(http);
+require('controller/socket.controller.js')(io);
 
 http.listen(config.port,function(){
     console.log("server listening on port : ", config.port)

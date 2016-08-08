@@ -5,7 +5,7 @@ var userService = require('service/user.service.js');
 // routes
 router.post('/authenticate', authenticateUser);
 router.post('/register', registerUser);
-router.post('/getmyinfo', getmyinfo);
+router.get('/getuser', getuser);
 
 module.exports = router;
 
@@ -13,7 +13,7 @@ function authenticateUser(req, res) {
     userService.authenticate(req.body.email, req.body.password)
         .then(function (token) {
             if (token) {
-            	console.log("token")
+            	console.log("authenticateUser이성공함. token은 "+token)
                 // authentication successful
                 res.send({ token : token });
             } else {
@@ -38,11 +38,10 @@ function registerUser(req, res) {
         });
 }
 
-function getmyinfo(req, res) {
-    console.dir(req.body);
-    userService.getmyinfo(req.body)
-        .then(function () {
-            res.sendStatus(200);
+function getuser(req, res) {
+    userService.getuser(req.user.email)
+        .then(function (userData) {
+            res.send(userData);
         })
         .catch(function (err) {
             res.status(400).send(err);

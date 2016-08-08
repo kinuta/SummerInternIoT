@@ -1,8 +1,6 @@
 var config = require('config.json');
 var jwt = require('jsonwebtoken');
 var Q = require('q');
-var mongoose = require('mongoose');
-mongoose.Promise = require('q').Promise;
 
 var model = require('model/user.model.js'),
     users = model.users;
@@ -11,7 +9,7 @@ var service = {};
 
 service.authenticate = authenticate;
 service.create = create;
-service.getmyinfo = getmyinfo;
+service.getuser = getuser;
 
 module.exports = service;
 
@@ -69,7 +67,22 @@ function create(userParam) {
     return deferred.promise;
 }
 
-function getmyinfo(userParam){
+function getuser(email){
     var deferred = Q.defer();
+    users.findOne({ email : email }, function (err, user) {
+        if (err) {
+            console.log("error")
+            deferred.reject(err);
+        }else{
+            console.log("success")
+            // find user successful
+            console.dir(user._doc)
+            deferred.resolve({
+                firstName : user._doc.firstName,
+                lastName : user._doc.lastName,
+                email : user._doc.email,
+            });            
+        }
+    });
     return deferred.promise;
 }

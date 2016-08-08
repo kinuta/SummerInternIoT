@@ -6,6 +6,8 @@ var path = require('path');
 var request = require('request');
 
 router.get('/', function (req, res) {
+    
+    console.log("session.token삭제")
     // log user out
     delete req.session.token;
 

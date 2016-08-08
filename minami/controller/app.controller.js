@@ -2,10 +2,10 @@ var express = require('express');
 var router = express.Router();
 
 // Router middleware, mentioned it before defining routes.
-router.use(function(req,res,next) {
-  console.log("/" + req.method);
-  next();
-});
+// router.use(function(req,res,next) {
+//   console.log("/" + req.method);
+//   next();
+// });
 
 // use session auth to secure the angular app files
 router.use('/', function (req, res, next) {
