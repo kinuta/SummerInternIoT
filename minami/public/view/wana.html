@@ -1,7 +1,23 @@
-<div class="row">
-	<div class="jumbotron">
-	        <h1>ワナのセンサーの確認</h1>
-	</div>
-
-	<h1><span class="label label-primary">新たなセンサを追加</span></h1>
+<div class="container">
+	<div class="row">
+		<div class="jumbotron margintopdown20">
+		        <h1>ワナのセンサーの確認</h1>
+		</div>
+		<div ui-view>
+			<div class="row jumbotron margintopdown20 bgwet">
+				<div class="col-xs-4">
+					<h3>ワナ名</h3>
+					<hr>
+					<p>名前</p>
+				</div>
+				<div class="col-xs-4">
+					<h3>ワナの状態</h3>
+					<hr>
+					<p>状態</p>
+				</div>
+				<h1 class="col-xs-4" style="text-align: center;"><span class="label label-primary">詳細</span></h1>
+			</div>
+			<h1><span class="label label-primary" ui-sref="index.wana.add">新たなセンサを追加</span></h1>
+		</div>
+	</div>	
 </div>

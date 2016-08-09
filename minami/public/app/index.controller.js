@@ -1,18 +1,19 @@
-minamiApp.controller("indexController", ['userService', Controller]);
+minamiApp.controller("indexController", Controller);
 
+function Controller(userService,toastr,$scope,$http,$window) {
+	var indexCtrl = this;
 
-function Controller(userService,$scope,$http,$window) {
-	var vm = this;
-
-	vm.init = function (){
+	indexCtrl.init = function (){
 		console.log("init")
 		userService.getUser()
 		.then(function(user) {
 			console.log("getUser Done.")
-			vm.user = user;
-			console.dir(vm.user)
+			indexCtrl.user = user;
+			console.dir(indexCtrl.user)
+			toastr.success(indexCtrl.user.firstName+indexCtrl.user.lastName+"さん!", '歓迎します!');
 		});
 	}
 
-	vm.init();
+	indexCtrl.init();
+
 }

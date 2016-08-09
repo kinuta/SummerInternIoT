@@ -1,1 +1,1 @@
-var minamiApp = angular.module("minamiApp", ['ui.router']);
+var minamiApp = angular.module("minamiApp", ['ui.router','ngAnimate', 'toastr', 'underscore']);

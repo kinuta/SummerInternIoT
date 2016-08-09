@@ -1,3 +1,4 @@
+var edisonCode = "kdrl";
 var mraa = require("mraa");
 
 var LightSensor = new mraa.Aio(0);
@@ -11,7 +12,7 @@ setInterval(function () {//これより1秒間隔でセンサーの値を取っ�
   Temp = TempSensor.read();
 }, 1000);
 
-var socket = require('socket.io-client')('http://192.168.0.23:3000', { query: "edisonCode=kdrl" });
+var socket = require('socket.io-client')('http://192.168.0.23:3000', { query: "edisonCode="+edisonCode });
 
 socket.on('connect',function(){ 
     console.log("connected")
@@ -25,6 +26,7 @@ function sendData(){
 	dt.setTime(dt.getTime() + 32400000); // 1000 * 60 * 60 * 9(hour)	// 日本の時間に修正
 
 	socket.emit('sendData', {
+		edisonCode:edisonCode,
 		Date : dt,
 		Light : Light,
 	 	Temp : Temp 

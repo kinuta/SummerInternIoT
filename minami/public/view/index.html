@@ -1,22 +1,27 @@
-<nav class="navbar navbar-inverse navbar-fixed-top" style="position:relative;">
-  <div class="container">
-    <div class="navbar-header">
-      <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar" aria-expanded="false" aria-controls="navbar">
-        <span class="sr-only">Toggle navigation</span>
-        <span class="icon-bar"></span>
-        <span class="icon-bar"></span>
-        <span class="icon-bar"></span>
-      </button>
-      <a class="navbar-brand" ui-sref="index.main">IoT Minami</a>
+<nav class="navbar navbar-default navbar-fixed-top">
+    <div class="container-fluid">
+        <!-- Brand and toggle get grouped for better mobile display -->
+        <div class="navbar-header">
+            <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1">
+                <span class="sr-only"></span> <i class="fa fa-bars"></i>
+            </button>
+            <p class="navbar-brand page-scroll">{{indexCtrl.user.firstName}}さんようこそ!</p>
+        </div>
+
+        <!-- Collect the nav links, forms, and other content for toggling -->
+        <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+            <ul class="nav navbar-nav navbar-right">
+                <li>
+                    <a class="page-scroll" ui-sref="index.main">メインページ</a>
+                </li>            
+                <li>
+                    <a class="page-scroll" ui-sref="index.howtouse">使用方法</a>
+                </li>
+            </ul>
+        </div>
+        <!-- /.navbar-collapse -->
     </div>
-    <div id="navbar" class="navbar-collapse collapse">
-      <ul class="nav navbar-nav">
-        <li><a ui-sref="index.main">メイン画面</a></li>
-        <li><a ui-sref="index.howtouse">使用方法</a></li>
-        <li><a href="/login">ログアウト</a></li>
-        <li><button ng-click="vm.init()">INIT</button></li>
-      </ul>
-    </div><!--/.nav-collapse -->
-  </div>
+    <!-- /.container-fluid -->
 </nav>
+
 <div ui-view></div>

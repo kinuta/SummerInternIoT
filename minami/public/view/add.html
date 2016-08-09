@@ -1,0 +1,18 @@
+<div class="jumbotron margintopdown20" ng-init="addCtrl.startmap()">
+	<div class="jumbotron padding20 bgwet">
+		<h3>場所を設定</h3>
+		<div style="height: 300px" id="map"></div>
+		<div>
+			<div class="form-group">
+				<label for="name">New Edison name:</label>
+				<input type="text" class="form-control" id="name" ng-model="addCtrl.edisonName">
+			</div>
+			<div class="form-group">
+				<label for="name">New Edison's code:</label>
+				<input type="text" class="form-control" id="name" ng-model="addCtrl.edisonCode">
+			</div>
+			<h3><button class="label label-primary" ng-click="addCtrl.moveToCurrentLocation()">現在位置に移動</button></h3>
+			<h3><button class="label label-primary" ng-click="addCtrl.add()">追加</button></h3>
+		</div>
+	</div>
+</div>

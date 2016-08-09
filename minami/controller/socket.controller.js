@@ -14,7 +14,7 @@ exports = module.exports = function(io){
 	});
 
 	io.on('connection', function(socket){
-	  console.log('edison connected');
+	  console.log('edison '+socket.handshake.query.edisonCode+' connected');
 	  socket.on('sendData',function(data){
 	  	console.log("data sended")
 	  	console.dir(data);

@@ -10,7 +10,7 @@ function config($stateProvider, $urlRouterProvider) {
     .state('index', {
       templateUrl: "view/index.html",
       controller: 'indexController',
-      controllerAs: 'vm'
+      controllerAs: 'indexCtrl'
     })
     .state('index.main', {
       url: "/main",
@@ -22,7 +22,15 @@ function config($stateProvider, $urlRouterProvider) {
     })
     .state('index.wana', {
       url: "/wana",
-      templateUrl: "view/wana.html"
+      templateUrl: "view/wana.html",
+      controller: 'wanaController',
+      controllerAs: 'wanaCtrl'
+    })
+    .state('index.wana.add', {
+      url: "/add",
+      templateUrl: "view/add.html",
+      controller: 'addController',
+      controllerAs: 'addCtrl'
     })
     .state('index.hatake', {
       url: "/hatake",
