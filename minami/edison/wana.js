@@ -1,8 +1,10 @@
 var edisonCode = "kdrl";
 var mraa = require("mraa");
 
-var OutPin = new mraaGpio(7);
+var OutPin = new mraa.Gpio(7);
 var InPin = new mraa.Aio(0);
+OutPin.dir(mraa.DIR_OUT);
+OutPin.write(1);
 
 var isConnected = (InPin.read()>600?1:0);
 
