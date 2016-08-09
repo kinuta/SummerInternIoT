@@ -1,5 +1,5 @@
 var config = require('config.json');
-var lightandtempService = require('service/lightandtemp.service.js');
+var wanaService = require('service/wana.service.js');
 
 exports = module.exports = function(io){
 
@@ -18,7 +18,7 @@ exports = module.exports = function(io){
 	  socket.on('sendData',function(data){
 	  	console.log("data sended")
 	  	console.dir(data);
-	  	lightandtempService.saveData(data)
+	  	wanaService.saveData(data)
         .then(function () {
         	console.log("save data success")
             res.sendStatus(200);
