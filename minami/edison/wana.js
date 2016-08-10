@@ -10,7 +10,11 @@ OutPin.write(1);
 var isConnected = (InPin.read()>600?true:false);
 
 setInterval(function () {//これより1秒間隔でセンサーの値を取ってくることとなる
+  var tmpisConnected = isConnected;
   isConnected = (InPin.read()>600?true:false);
+  if(tmpisConnected == true && isConnected == false){
+  	sendDanger();
+  }
   console.log(isConnected)
 }, 1000);
 
@@ -35,4 +39,18 @@ function sendData(){
 		isConnected: isConnected
 	});
 	setTimeout(sendData,5000);//5秒に一回送信する(５秒間の平均を送るように工夫を入れたい)
+}
+
+function sendDanger(){
+	console.log("send Danger");
+
+	var dt    = new Date();// 現在時刻の取得
+	dt.setTime(dt.getTime() + 32400000); // 1000 * 60 * 60 * 9(hour)	// 日本の時間に修正
+
+	socket.emit('sendDanger', {
+		edisonCode:edisonCode,
+		edisonType:edisonType,
+		Date : dt,
+	});
+	
 }
