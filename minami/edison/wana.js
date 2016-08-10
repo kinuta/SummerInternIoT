@@ -16,6 +16,7 @@ setInterval(function () {//これより1秒間隔でセンサーの値を取っ�
 
 var socket = require('socket.io-client')('http://192.168.0.23:3000', { query: "serverPW="+serverPW });
 
+
 socket.on('connect',function(){ 
     console.log("connected")
     sendData();
