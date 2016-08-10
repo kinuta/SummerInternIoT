@@ -1,12 +1,13 @@
 var config = require('config.json');
 var wanaService = require('service/wana.service.js');
+var _ = require('underscore');
 
 exports = module.exports = function(io){
 
 	io.use(function(socket, next){//socket連結の認証検査
 	    console.log("Query: ", socket.handshake.query);
 	    // return the result of next() to accept the connection.
-	    if (socket.handshake.query.edisonCode == config.code) {
+	    if (socket.handshake.query.serverPW == config.serverPW) {
 	        return next();
 	    }
 	    // call next() with an Error if you need to reject the connection.
@@ -14,18 +15,20 @@ exports = module.exports = function(io){
 	});
 
 	io.on('connection', function(socket){
-	  console.log('edison '+socket.handshake.query.edisonCode+' connected');
+	  console.log('edison connected');
 	  socket.on('sendData',function(data){
 	  	console.log("data sended")
 	  	console.dir(data);
-	  	wanaService.saveData(data)
-        .then(function () {
-        	console.log("save data success")
-            res.sendStatus(200);
-        })
-        .catch(function (err) {
-            res.status(400).send(err);
-        });
+
+			wanaService.saveData(_.omit(data, 'edisonType'))
+			.then(function () {
+				console.log("save data success")
+			    res.sendStatus(200);
+			})
+			.catch(function (err) {
+			    res.status(400).send(err);
+			});
+
 	  })
 	});
   

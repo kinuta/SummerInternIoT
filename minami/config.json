@@ -1,6 +1,8 @@
 {
+    "address":"http://localhost",
+    "apiUrl": "http://localhost:3000/api",
     "port": "3000",
     "code": "kdrl",
-    "apiUrl": "http://localhost:3000/api",
+    "serverPW": "serverPW",
     "secret": "REPLACE THIS WITH YOUR OWN SECRET, IT CAN BE ANY STRING"
 }

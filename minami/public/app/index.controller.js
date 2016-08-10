@@ -1,6 +1,6 @@
 minamiApp.controller("indexController", Controller);
 
-function Controller(userService,toastr,$scope,$http,$window) {
+function Controller(userService,toastr,$scope,$http,$window,$rootScope) {
 	var indexCtrl = this;
 
 	indexCtrl.init = function (){

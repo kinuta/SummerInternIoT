@@ -4,18 +4,18 @@
 		        <h1>ワナのセンサーの確認</h1>
 		</div>
 		<div ui-view>
-			<div class="row jumbotron margintopdown20 bgwet">
+			<div class="row jumbotron margintopdown20 bgwet" ng-repeat="briefWanaData in wanaCtrl.briefWanasData">
 				<div class="col-xs-4">
-					<h3>ワナ名</h3>
-					<hr>
-					<p>名前</p>
+					<ng-map zoom="19" map-type-id="SATELLITE" center="[{{briefWanaData.location.lat}}, {{briefWanaData.location.lng}}]">
+						<marker position="[{{briefWanaData.location.lat}}, {{briefWanaData.location.lng}}]"></marker>
+					</ng-map>
 				</div>
 				<div class="col-xs-4">
-					<h3>ワナの状態</h3>
+					<h4>Edison名 : {{briefWanaData.edisonCode}}</h4>
 					<hr>
-					<p>状態</p>
+					<h4>状態 : {{briefWanaData.isConnected}}</h4>
 				</div>
-				<h1 class="col-xs-4" style="text-align: center;"><span class="label label-primary">詳細</span></h1>
+				<h1 class="col-xs-4" style="text-align: center;" ng-click="wanaCtrl.getDetailData(briefWanaData.edisonCode);"><span class="label label-primary">詳細</span></h1>
 			</div>
 			<h1><span class="label label-primary" ui-sref="index.wana.add">新たなセンサを追加</span></h1>
 		</div>

@@ -28,9 +28,13 @@ function config($stateProvider, $urlRouterProvider) {
     })
     .state('index.wana.add', {
       url: "/add",
-      templateUrl: "view/add.html",
-      controller: 'addController',
-      controllerAs: 'addCtrl'
+      templateUrl: "view/wana.add.html",
+      controller: 'wanaAddController',
+      controllerAs: 'wanaAddCtrl'
+    })
+    .state('index.wana.detail', {
+      url: "/detail",
+      templateUrl: "view/wana.detail.html"
     })
     .state('index.hatake', {
       url: "/hatake",

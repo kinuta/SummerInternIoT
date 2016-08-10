@@ -24,6 +24,7 @@ app.use('/api', expressJwt({ secret: config.secret }).unless({ path: ['/api/user
 app.use('/app', require('controller/app.controller.js'));
 app.use('/login', require('controller/login.controller.js'));
 app.use('/api/user', require('controller/user.controller.js'));
+app.use('/api/wana', require('controller/wana.controller.js'));
 app.use('/register', require('controller/register.controller'));
 app.get('/', function(req, res) {// make '/app' default route
   return res.redirect('/app');

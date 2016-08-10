@@ -53,9 +53,6 @@ setInterval( function () {
     // Calculate Distance from duration
     var distance = duration / 29 / 2;
 
-    if (distance > 0) {
-        // Show the distance on the console
-        console.log(distance + ' cm');
-    }
     console.log(distance + ' cm')
+    
 }, 100);

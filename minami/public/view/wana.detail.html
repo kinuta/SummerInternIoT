@@ -1,0 +1,24 @@
+<div class="jumbotron margintopdown20">
+<!--
+	<div class="jumbotron padding20 bgwet" ng-repeat="data in wanaCtrl.detailData">
+        <div class="row">
+            
+        </div>
+		{{data.edisonCode}} {{data.Date}} {{data.isConnected}}
+	</div>
+-->
+    <table class="mdl-data-table mdl-js-data-table mdl-shadow--2dp">
+      <thead>
+        <tr>
+          <th class="mdl-data-table__cell--non-numeric">日時</th>
+          <th class="mdl-data-table__cell--non-numeric">状態</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr ng-repeat="data in wanaCtrl.detailData">
+          <td class="mdl-data-table__cell--non-numeric"><p>{{data.Date}}</p></td>
+          <td class="mdl-data-table__cell--non-numeric"><p ng-class="{wanaDanger : !data.isConnected}">{{data.isConnected}}</p></td>
+        </tr>
+      </tbody>
+    </table>
+</div>
