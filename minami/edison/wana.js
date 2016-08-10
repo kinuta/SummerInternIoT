@@ -14,7 +14,7 @@ setInterval(function () {//これより1秒間隔でセンサーの値を取っ�
   console.log(isConnected)
 }, 1000);
 
-var socket = require('socket.io-client')('http://192.168.0.23:3000', { query: "edisonCode="+edisonCode });
+var socket = require('socket.io-client')('http://192.168.0.23:3000', { query: {edisonCode:edisonCode, serverPW:serverPW} });
 
 socket.on('connect',function(){ 
     console.log("connected")

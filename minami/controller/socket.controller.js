@@ -7,7 +7,7 @@ exports = module.exports = function(io){
 	io.use(function(socket, next){//socket連結の認証検査
 	    console.log("Query: ", socket.handshake.query);
 	    // return the result of next() to accept the connection.
-	    if (socket.handshake.query.edisonCode == config.code) {
+	    if (socket.handshake.query.serverPW == config.serverPW) {
 	        return next();
 	    }
 	    // call next() with an Error if you need to reject the connection.
