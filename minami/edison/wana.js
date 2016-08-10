@@ -13,7 +13,8 @@ setInterval(function () {//これより1秒間隔でセンサーの値を取っ�
   console.log(isConnected)
 }, 1000);
 
-var socket = require('socket.io-client')('http://192.168.0.23:3000', { query: "edisonCode="+edisonCode });
+var socket = require('socket.io-client')('http://192.168.0.23:3000', { 
+query: "edisonCode="+edisonCode });
 
 socket.on('connect',function(){ 
     console.log("connected")
@@ -31,5 +32,6 @@ function sendData(){
 		Date : dt,
 		isConnected: isConnected
 	});
-	setTimeout(sendData,5000);//5秒に一回送信する(５秒間の平均を送るように工夫を入れたい)
+	
+setTimeout(sendData,5000);//5秒に一回送信する(５秒間の平均を送るように工夫を入れたい)
 }
