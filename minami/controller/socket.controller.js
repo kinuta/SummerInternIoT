@@ -1,5 +1,6 @@
 var config = require('config.json');
 var wanaService = require('service/wana.service.js');
+var mailService = require('service/mail.service.js');
 var _ = require('underscore');
 
 exports = module.exports = function(io){
@@ -15,10 +16,10 @@ exports = module.exports = function(io){
 	});
 
 	io.on('connection', function(socket){
-	  console.log('edison connected');
-	  socket.on('sendData',function(data){
-	  	console.log("data sended")
-	  	console.dir(data);
+		console.log('edison connected');
+		socket.on('sendData',function(data){
+			console.log("data sended")
+			console.dir(data);
 
 			wanaService.saveData(_.omit(data, 'edisonType'))
 			.then(function () {
@@ -29,7 +30,27 @@ exports = module.exports = function(io){
 			    res.status(400).send(err);
 			});
 
-	  })
+		})
+
+		socket.on('sendDanger',function(data){
+			console.log("Danger detected!!!!!!")
+			console.dir(data);
+
+			mailService.wanamail(data)
+			.then(function (result) {
+				if(result==true){
+					console.log("send mail success")
+				    res.sendStatus(200);
+				}else{
+			    	res.status(400).send(err);					
+				}
+			})
+			.catch(function (err) {
+			    res.status(400).send(err);
+			});
+
+
+		})
 	});
   
 }
