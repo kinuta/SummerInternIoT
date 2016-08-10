@@ -13,7 +13,8 @@ var userSchema = new mongoose.Schema({
     firstName : String,
     lastName : String,
     email : String,
-    password : String
+    password : String,
+    wanaEdison : Array
 });
 
 exports.users = db.model('user', userSchema);

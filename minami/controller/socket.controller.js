@@ -1,5 +1,6 @@
 var config = require('config.json');
 var wanaService = require('service/wana.service.js');
+var _ = require('underscore');
 
 exports = module.exports = function(io){
 
@@ -18,14 +19,16 @@ exports = module.exports = function(io){
 	  socket.on('sendData',function(data){
 	  	console.log("data sended")
 	  	console.dir(data);
-	  	wanaService.saveData(data)
-        .then(function () {
-        	console.log("save data success")
-            res.sendStatus(200);
-        })
-        .catch(function (err) {
-            res.status(400).send(err);
-        });
+
+			wanaService.saveData(_.omit(data, 'edisonType'))
+			.then(function () {
+				console.log("save data success")
+			    res.sendStatus(200);
+			})
+			.catch(function (err) {
+			    res.status(400).send(err);
+			});
+
 	  })
 	});
   

@@ -1,4 +1,5 @@
 var edisonCode = "kdrl";
+var edisonType = "wana";
 var mraa = require("mraa");
 
 var OutPin = new mraa.Gpio(7);
@@ -28,6 +29,7 @@ function sendData(){
 
 	socket.emit('sendData', {
 		edisonCode:edisonCode,
+		edisonType:edisonType,
 		Date : dt,
 		isConnected: isConnected
 	});

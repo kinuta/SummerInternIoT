@@ -1,7 +1,8 @@
 minamiApp.run(run);
 
-function run($http, $rootScope, $window) {
+function run($http, $state, $rootScope, $window) {
 	console.log("run")
+
 	$.get('/app/token', function(token) {  
 		window.jwtToken = token;
 		$http.defaults.headers.common['Authorization'] = 'Bearer ' + $window.jwtToken;

@@ -2,6 +2,7 @@ html,body {
   height: 100%;
   width: 100%;
   font-family: 'Merriweather', 'Helvetica Neue', Arial, sans-serif;
+  background-color: #F7F7F7;
 }
 nav.navbar{
 	position: relative;
@@ -53,4 +54,30 @@ nav.navbar{
 .bgwet{
 	background-color:#34495e !important;
 	color:white !important;
+}
+.wanaDanger{
+    font-weight: bold;
+    color : red; important!
+}
+.parent {
+  position: relative;
+  height : 100%;
+    
+}
+.child {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+}
+.center-me {
+  margin: 50px auto;
+}
+.demo-card-wide > .mdl-card__title {
+  color: #fff;
+  height: 176px;
+  background: url('../img/wana.jpg') center / cover;
+}
+.demo-card-wide > .mdl-card__menu {
+  color: #fff;
 }
