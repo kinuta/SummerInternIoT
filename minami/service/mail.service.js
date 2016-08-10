@@ -27,12 +27,13 @@ service.wanamail = wanamail;
 module.exports = service;
 
 function wanamail(data){
+	var deferred = Q.defer();
 	var asynccounter = 0;
 
 	users.find({'wanaEdison': {$elemMatch: {edisonCode: data.edisonCode}}}, function (err, users) {
 	    if (err) {
 	        console.log("error")
-	        return false;
+	        deferred.reject(err);
 	    }else{
 			_.each(users,function(user){
 				asynccounter++;
@@ -44,11 +45,12 @@ function wanamail(data){
 				};
 				sendmail(mailOptions);
 				if(asynccounter == users.length){
-					return true;
+					deferred.resolve(true);  
 				}
 			})	       
 	    }
-	}
+	})
+	return deferred.promise;
 
 }
 

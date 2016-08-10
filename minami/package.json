@@ -8,6 +8,8 @@
     "jsonwebtoken": "^5.0.2",
     "mongodb": "^2.1.16",
     "mongoose": "^4.5.8",
+    "nodemailer": "^2.5.0",
+    "nodemailer-smtp-transport": "^2.6.0",
     "q": "^1.4.1",
     "request": "^2.58.0",
     "rootpath": "^0.1.2",

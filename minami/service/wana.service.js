@@ -15,7 +15,7 @@ module.exports = service;
 function iswanaconnected(edisonCode){
 	var deferred = Q.defer();
 
-	wanas.findOne().sort('-Date').exec(function(err, data) {
+	wanas.findOne({ edisonCode : edisonCode }).sort('-Date').exec(function(err, data) {
 	    if (err) {
 	        deferred.reject(err);
 	    }else{
