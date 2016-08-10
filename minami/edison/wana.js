@@ -1,5 +1,5 @@
 var serverPW = "serverPW";
-var edisonCode = "firstEdison";
+var edisonCode = "secondEdison";
 var edisonType = "wana";
 var mraa = require("mraa");
 
