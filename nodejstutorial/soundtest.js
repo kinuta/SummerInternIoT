@@ -16,11 +16,11 @@ function checkSoundLevels(){
 
   // Check If the sound is higher than the sthreshold
   if(soundValue >= threshold){
-    console.log("大きい声ですよ " + soundValue);
-    setTimeout(checkSoundLevels, 100);
+    console.log("BIG " + soundValue);
+    setTimeout(checkSoundLevels, 10);
   } else {
-    console.log("小さい声ですよ " + soundValue);
-    setTimeout(checkSoundLevels, 100);
+    console.log("SMALL " + soundValue);
+    setTimeout(checkSoundLevels, 10);
   }
 }
 
