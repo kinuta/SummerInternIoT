@@ -1,9 +1,9 @@
 var servoModule = require("jsupm_servo");
 
-var servo1 = new servoModule.ES08A(5);
-var servo2 = new servoModule.ES08A(6);
-var servo3 = new servoModule.ES08A(9);
-var servo4 = new servoModule.ES08A(10);
+var servo1 = new servoModule.Servo.attach(5);
+// var servo2 = new servoModule.ES08A(6);
+// var servo3 = new servoModule.ES08A(9);
+// var servo4 = new servoModule.ES08A(11);
 // function to initialize servo
     // timeOffset: how long after hitting "run"
     //		should we start this servo instance
@@ -18,9 +18,9 @@ function startServo(timeOffset, timeInterval, angle)
         setInterval(function()
         {
             servo1.setAngle(angle);
-            servo2.setAngle(angle);
-            servo3.setAngle(angle);
-            servo4.setAngle(angle);
+            // servo2.setAngle(angle);
+            // servo3.setAngle(angle);
+            // servo4.setAngle(angle);
             console.log("Set angle to " + angle);
         }, timeInterval);
     }, timeOffset);
