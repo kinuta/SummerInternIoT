@@ -7,7 +7,7 @@ var servo = new servoModule.ES08A(5);
 // function to initialize servo
     // timeOffset: how long after hitting "run"
     //		should we start this servo instance
-    // timeInterval: how frequently should this instance run after timeOffset
+    // timeInterval: how frequently should this instance run after timeoffset
     // angle: the angle for this instance
 function startServo(timeOffset, timeInterval, angle)
 {
