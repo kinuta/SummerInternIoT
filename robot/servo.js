@@ -13,7 +13,7 @@ function setServoAngle(angle, timeOffSet){
 }
 
 console.log("start simasu")
-setTimeout(setServoAngle(0, timeOffSet),timeOffSet);
+setTimeout(setServoAngle(0, timeOffSet), 100000000000000);
 
 process.on('SIGINT', function()
 {
