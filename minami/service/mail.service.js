@@ -41,7 +41,7 @@ function wanamail(data){
 					from: 'MonkeyGO <2016monkeygo@gmail.com>',
 					to: user.email,
 					subject: 'お客様へのお知らせ(罠センサー) by MonkeyGO',
-					text: 'いつもお世話になっております。'+user.firstName+' '+user.lastName+'様の罠センサー(edisonCode: '+data.edisonCode+')が作動しました。より詳しい情報は '+config.address+':'+config.port+'より確認してください。'
+					text: 'いつもお世話になっております。'+user.firstName+' '+user.lastName+'様の罠センサー(edisonCode: '+data.edisonCode+')が作動しました。より詳しい情報は http://192.168.12.40:3000 より確認してください。'
 				};
 				sendmail(mailOptions);
 				if(asynccounter == users.length){
