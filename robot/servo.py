@@ -14,7 +14,16 @@ def gogogo(angle):
     time.sleep(0.5)
     return gogogo(getNextAngle())
 
-gogogo(0)
+# gogogo(0)
+gServo.setAngle(0)
+time.sleep(2)
+gServo.setAngle(90)
+time.sleep(2)
+gServo.setAngle(180)
+time.sleep(2)
+#gServo.setAngle(270)
+print("end")
+
 
 # Delete the servo object
 del gServo 

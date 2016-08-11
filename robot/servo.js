@@ -3,7 +3,7 @@ var servoModule = require("jsupm_servo");
 var servo1 = new servoModule.ES08A(5);
 var servo2 = new servoModule.ES08A(6);
 
-var timeOffSet = 500;
+var timeOffSet = 2000;
 
 function setServoAngle(servo,angle){
 	servo.setAngle(angle);
