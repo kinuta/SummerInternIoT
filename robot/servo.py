@@ -2,27 +2,16 @@ import time
 import random
 import pyupm_servo as servo 
 
-# Create the servo 
-gServo = servo.ES08A(5)
+gServo1 = servo.ES08A(5)#したのやつ
+gServo2 = servo.ES08A(6)
+gServo3 = servo.ES08A(7)
+gServo4 = servo.ES08A(8)
+gServo5 = servo.ES08A(9)#上のやつ。つまりここが手
 
-def getNextAngle():
-    return random.randint(0, 180)
+# def setAngle(targetServo, angle):
+#     targetServo.setAngle(angle)
+#     print(targetServo,"move to angle : ",angle)
 
-def gogogo(angle):
-    gServo.setAngle(angle)
-    print('move to angle : ',angle)
-    time.sleep(0.5)
-    return gogogo(getNextAngle())
-
-# gogogo(0)
-gServo.setAngle(0)
-time.sleep(2)
-gServo.setAngle(90)
-time.sleep(2)
-gServo.setAngle(180)
-time.sleep(2)
-#gServo.setAngle(270)
-print("end")
 
 
 # Delete the servo object
