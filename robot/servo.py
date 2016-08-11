@@ -1,10 +1,10 @@
 import time
 import pyupm_servo as servo 
 
-# Create the servo object using D5
+# Create the servo 
 gServo = servo.ES08A(5)
 
-for i in range(0,10): 
+for i in range(0,1000): 
     # Set the servo arm to 0 degrees
     gServo.setAngle(0)
     print 'Set angle to 0'
