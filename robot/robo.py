@@ -20,7 +20,7 @@ while True:
 	servo3Angle = int(servo3Rotary.abs_value())*180/1024
 	servo4Angle = int(servo4Rotary.abs_value())*180/1024
 
-	print "servo1angle: %4d" % servo1angle, "servo2angle: %4d" % servo2angle, "servo3angle: %4d" % servo3angle, "servo4angle: %4d" % servo4angle
+	print "servo1Angle: %4d" % servo1Angle, "servo2Angle: %4d" % servo2Angle, "servo3Angle: %4d" % servo3Angle, "servo4Angle: %4d" % servo4Angle
 
 	servo1.setAngle(servo1Angle)
 	servo2.setAngle(servo2Angle)
