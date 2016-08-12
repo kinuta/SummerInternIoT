@@ -1,9 +1,8 @@
 var servoModule = require("jsupm_servo");
 
-var servo1 = new servoModule.ES08A(5);
-var servo2 = new servoModule.ES08A(6);
+var servo = new servoModule.ES08A(9);
 
-var timeOffSet = 1000;
+var timeOffSet = 2000;
 
 function setServoAngle(servo,angle){
 	servo.setAngle(angle);
@@ -17,8 +16,7 @@ function setServoAngle(servo,angle){
 console.log("start simasu get ready~")
 
 setTimeout(function(){
-		setServoAngle(servo1,0);
-		setServoAngle(servo2,0);
+		setServoAngle(servo,180);
 },1000);
 
 process.on('SIGINT', function()
