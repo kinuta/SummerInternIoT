@@ -1,0 +1,23 @@
+<div class="container">
+	<div class="row">
+		<div class="jumbotron margintopdown20">
+		        <h1>ワナのセンサーの確認</h1>
+		</div>
+		<div ui-view>
+			<div class="row jumbotron margintopdown20 bgwet" ng-repeat="briefWanaData in wanaCtrl.briefWanasData">
+				<div class="col-xs-4">
+					<ng-map zoom="19" map-type-id="SATELLITE" center="[{{briefWanaData.location.lat}}, {{briefWanaData.location.lng}}]">
+						<marker position="[{{briefWanaData.location.lat}}, {{briefWanaData.location.lng}}]"></marker>
+					</ng-map>
+				</div>
+				<div class="col-xs-4">
+					<h4>Edison名 : {{briefWanaData.edisonCode}}</h4>
+					<hr>
+					<h4>状態 : {{briefWanaData.isConnected}}</h4>
+				</div>
+				<h1 class="col-xs-4" style="text-align: center;" ng-click="wanaCtrl.getDetailData(briefWanaData.edisonCode);"><span class="label label-primary">詳細</span></h1>
+			</div>
+			<h1><span class="label label-primary" ui-sref="index.wana.add">新たなセンサを追加</span></h1>
+		</div>
+	</div>	
+</div>

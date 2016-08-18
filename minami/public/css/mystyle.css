@@ -1,0 +1,83 @@
+html,body {
+  height: 100%;
+  width: 100%;
+  font-family: 'Merriweather', 'Helvetica Neue', Arial, sans-serif;
+  background-color: #F7F7F7;
+}
+nav.navbar{
+	position: relative;
+	margin: 0px;
+}
+.main-block-wana {
+	background-color: #e74c3c;
+	text-align: center;
+	height: 50vh;
+	position: relative;
+}
+.main-block-hatake {
+	background-color: #3498db;
+	text-align: center;
+	height: 50vh;
+	position: relative;
+}
+.block-name{
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  font-size: 30px;
+}
+.main-block-wana > a, .main-block-hatake > a {
+	color: #34495e;
+}
+.oshirase{
+	background-color: #16a085;
+	text-align: center;
+	height: 50vh;
+}
+.margintopdown20{
+	margin: 20px 0px 20px
+}
+.padding20{
+ 	padding: 20px
+}
+.margin20{
+	margin: 20px;
+}
+.bgmidnight{
+	background-color:#2c3e50 !important;
+	color:white !important;
+}
+.bgcloud{
+	background-color:#ecf0f1 !important;
+}
+.bgwet{
+	background-color:#34495e !important;
+	color:white !important;
+}
+.wanaDanger{
+    font-weight: bold;
+    color : red; important!
+}
+.parent {
+  position: relative;
+  height : 100%;
+    
+}
+.child {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+}
+.center-me {
+  margin: 50px auto;
+}
+.demo-card-wide > .mdl-card__title {
+  color: #fff;
+  height: 176px;
+  background: url('../img/wana.jpg') center / cover;
+}
+.demo-card-wide > .mdl-card__menu {
+  color: #fff;
+}
